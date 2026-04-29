@@ -1,4 +1,4 @@
-# SQL Practice – Day 1 & Day 2 (HackerRank)
+# SQL Practice –(HackerRank)
 
 This repository contains SQL solutions for basic-level problems from HackerRank.
 Focus areas include SELECT queries, filtering, string operations, REGEXP usage, sorting, and conditional logic.
@@ -125,3 +125,31 @@ Subqueries
 Joins
 
 Advanced CASE usage
+
+
+## SQL from basics again from basics
+
+## Topic - Create & Insert 
+This project contains multiple databases created in Microsoft SQL Server for practicing SQL queries.
+
+🗂️ Databases Included
+Healthcare → Patient records and diagnosis
+Finance → Transaction details
+Pharmacy → Medicines and expiry tracking
+Automobile → Vehicle information
+Education → Student records
+E-Commerce → Orders and sales data
+Demart → Customers, products, and inventory
+
+⚙️ What This Project Covers
+Creating databases and tables
+Inserting records
+Basic SQL queries (SELECT, WHERE)
+Filtering data using conditions
+
+📊 Sample Queries
+Fetch all records (SELECT *)
+Select specific columns
+Apply conditions (WHERE age > 50, amount > 5000)
+Work with dates and filters
+

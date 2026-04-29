@@ -153,3 +153,42 @@ Select specific columns
 Apply conditions (WHERE age > 50, amount > 5000)
 Work with dates and filters
 
+## Topic - UPDATE
+
+This project contains multiple UPDATE queries written in Microsoft SQL Server to practice real-world data modification scenarios.
+
+⚙️ What This Covers
+Updating single and multiple columns
+Using WHERE conditions effectively
+Working with operators:
+AND, OR
+BETWEEN
+IN, NOT IN
+LIKE (pattern matching)
+Performing bulk updates
+Applying calculations (e.g., salary hike)
+
+📊 Types of Updates Included
+Employee salary updates
+Department & designation changes
+Location modifications
+Active/Inactive status updates
+Conditional updates based on:
+Date (hire_date)
+Range (BETWEEN)
+Pattern (LIKE)
+Multiple values (IN)
+
+⚠️ Important Note
+
+Always verify before updating:
+SELECT * FROM Employee_Info WHERE condition;
+
+Use transactions for safety:
+BEGIN TRANSACTION;
+-- UPDATE query
+ROLLBACK; -- or COMMIT;
+
+🎯 Purpose
+To build strong understanding of UPDATE statements for interviews and real-world database operations.
+

@@ -115,3 +115,17 @@ DROP TABLE Employee_Info;
 -- 15.	Drop the table only if it exists (to avoid runtime error).
 
 DROP TABLE IF EXISTS Employee_Info;
+
+-- 21. Delete employees from the HR department who were hired before January 1, 2021    
+    
+    DELETE FROM Employee_Info WHERE department='HR' AND hire_date<'2021-01-01';
+ 
+
+-- 22. Delete all employees whose designation contains the word 'Engineer'.
+    
+    DELETE FROM Employee_Info WHERE designation LIKE '%ENGINEER%';
+
+
+-- 23. Delete employees who are located in Ahmedabad and belong to the Marketing department.
+
+DELETE FROM Employee_Info WHERE location='AHMEDABAD' AND department = 'MARKETING';

@@ -85,3 +85,33 @@ DELETE FROM Employee_Info WHERE full_name LIKE 'A%';
 
 DELETE FROM Employee_Info WHERE department NOT IN ('IT');
  
+
+--11.	Truncate the Employee_Info table to remove all records.
+
+TRUNCATE TABLE Employee_Info;
+ 
+
+--12.	Can you truncate only employees with salary < 60,000? Why or why not? (Theoretical)
+
+-- No, because
+-- TRUNCATE TABLE removes all rows from a table 
+-- It works at table level, not row level 
+-- It does not allow WHERE clause
+
+-- 13.	What’s the difference between TRUNCATE and DELETE when removing all rows?
+
+-- TRUNCATE	 											DELETE
+-- Removes all rows                                   	Removes all rows (or selected rows)
+-- No WHERE clause										Supports WHERE
+-- Faster (minimal logging)								Slower (row-by-row)
+-- Resets identity										Does NOT reset identity
+-- Cannot be used with conditions						Can be used with conditions
+
+-- 14.	Drop the Employee_Info table entirely from the database.
+
+DROP TABLE Employee_Info;
+ 
+
+-- 15.	Drop the table only if it exists (to avoid runtime error).
+
+DROP TABLE IF EXISTS Employee_Info;

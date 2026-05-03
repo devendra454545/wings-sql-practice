@@ -129,3 +129,45 @@ DROP TABLE IF EXISTS Employee_Info;
 -- 23. Delete employees who are located in Ahmedabad and belong to the Marketing department.
 
 DELETE FROM Employee_Info WHERE location='AHMEDABAD' AND department = 'MARKETING';
+
+
+--24. Delete employees who are earning more than ₹75,000 but are inactive.
+      
+    DELETE FROM Employee_Info WHERE salary>75000 AND is_active=0;
+ 
+
+--25. Delete employees whose names end with 'Rao' or 'Patil'.
+    
+    DELETE FROM Employee_Info WHERE full_name LIKE '%RAO' OR full_name LIKE '%PATIL';
+
+
+
+--26. Delete all employees who were hired in the year 2020.
+
+     DELETE FROM Employee_Info WHERE hire_date >= '2020-01-01' AND hire_date < '2021-01-01';
+    
+
+
+--27. Delete employees who have a designation Hr.
+
+     DELETE FROM Employee_Info WHERE designation='HR';
+    
+
+--28. Delete all employees who belong to departments other than IT, HR, and Finance.
+
+     DELETE FROM Employee_Info WHERE department NOT IN ('IT','HR','FINANCE');
+    
+
+--29. Delete all employees who have the same salary as someone in the HR department.
+
+    DELETE FROM Employee_Info 
+     WHERE SALARY IN (SELECT SALARY FROM Employee_Info WHERE department='HR') 
+     AND department!='HR';
+       
+
+--30. Delete all employees who were hired after '2022-12-31'.
+
+     DELETE FROM Employee_Info WHERE hire_date > '2022-12-31';
+     
+
+

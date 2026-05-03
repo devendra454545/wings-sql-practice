@@ -153,6 +153,10 @@ Select specific columns
 Apply conditions (WHERE age > 50, amount > 5000)
 Work with dates and filters
 
+🎯 Purpose
+
+To practice real-world SQL scenarios across different domains like healthcare, finance, retail, and education.
+
 ## Topic - UPDATE
 
 This project contains multiple UPDATE queries written in Microsoft SQL Server to practice real-world data modification scenarios.
@@ -191,4 +195,49 @@ ROLLBACK; -- or COMMIT;
 
 🎯 Purpose
 To build strong understanding of UPDATE statements for interviews and real-world database operations.
+
+## Topic - DELETE, TRUNCATE & DROP
+
+This project contains multiple DELETE operations performed on an employee dataset using Microsoft SQL Server.
+
+🗂️ Table Used
+
+Employee_Info-
+Employee details (name, department, salary, hire date, location, status)
+
+⚙️ What This Covers
+Deleting specific records (WHERE employee_id = ?)
+
+Conditional deletes using:
+AND, OR
+BETWEEN
+IN, NOT IN
+LIKE (pattern matching)
+
+Deleting based on:
+Salary
+Department
+Location
+Hire date
+Status (is_active)
+Subquery-based delete
+Table-level operations (TRUNCATE, DROP)
+
+📊 Key Concepts
+DELETE → removes selected rows
+TRUNCATE → removes all rows (no condition)
+DROP → deletes entire table
+
+⚠️ Important Notes
+-- Always check before delete
+SELECT * FROM Employee_Info WHERE condition;
+
+-- Use transaction for safety
+BEGIN TRANSACTION;
+DELETE FROM Employee_Info WHERE condition;
+ROLLBACK; -- or COMMIT;
+
+🎯 Purpose
+
+To practice real-world delete scenarios and strengthen SQL concepts for interviews and projects.
 

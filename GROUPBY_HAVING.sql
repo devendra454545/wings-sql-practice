@@ -47,3 +47,22 @@ SELECT customer_name, sum(quantity*unit_price) AS TOTAL_REVENUE FROM Online_Orde
 
 --4.	Count the number of distinct products ordered per category.
 SELECT category, COUNT(DISTINCT product_name) AS NUMBER_OF_DISTINCT_PRODUCTS_PER_CATEGORY FROM Online_Orders GROUP BY category;
+
+
+--5.	Show the total number of orders for each payment_method.
+SELECT payment_method, COUNT(*) AS NUMBER_OF_ORDERS FROM Online_Orders GROUP BY payment_method;
+
+--6.	Find customers who have ordered more than 3 items in total (sum of quantity).
+SELECT customer_name, SUM(quantity) AS NUMBER_OF_ITEMS FROM Online_Orders GROUP BY customer_name HAVING SUM(quantity)>3;
+
+--7.	Show product names that have earned more than ₹10,000 in total revenue.
+SELECT product_name, SUM(quantity*unit_price) AS TOTAL_REVENUE FROM Online_Orders GROUP BY product_name HAVING SUM(quantity*unit_price)>10000;
+
+--8.	List categories where the total quantity ordered is more than 5 units.
+SELECT category, SUM(quantity) AS TOTAL_QUANTITY FROM Online_Orders GROUP BY category HAVING SUM(quantity)>5;
+
+--9.	Show customers who have placed more than 1 order.
+SELECT customer_name, COUNT(*) AS TOTAL_ORDERS FROM Online_Orders GROUP BY customer_name HAVING COUNT(*)>1;
+
+--10.	List payment methods used in more than 3 orders.
+SELECT payment_method, COUNT(*) AS TIMES_USED FROM Online_Orders GROUP BY payment_method HAVING COUNT(*)>3;

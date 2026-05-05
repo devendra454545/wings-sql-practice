@@ -91,3 +91,9 @@ SELECT customer_name, COUNT(*) AS NUMBER_OF_ORDERS FROM Online_Orders WHERE paym
 --16.	Calculate total revenue (quantity * unit_price) per customer_name.
 SELECT customer_name, SUM(quantity*unit_price) AS TOTAL_REVENUE  FROM Online_Orders GROUP BY customer_name;
 
+--17.	Find the average revenue per category where total quantity is more than 5.
+SELECT category, AVG(quantity*unit_price) AS AVG_REVENUE FROM Online_Orders WHERE quantity>5 GROUP BY category;
+
+--18.	Calculate 20% discount on total revenue per product_name and show discounted revenue.
+SELECT product_name, SUM(quantity*unit_price*0.80) AS DISCOUNTED_REVENUE FROM Online_Orders GROUP BY product_name;
+

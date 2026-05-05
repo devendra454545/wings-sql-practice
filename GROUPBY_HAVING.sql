@@ -64,5 +64,30 @@ SELECT category, SUM(quantity) AS TOTAL_QUANTITY FROM Online_Orders GROUP BY cat
 --9.	Show customers who have placed more than 1 order.
 SELECT customer_name, COUNT(*) AS TOTAL_ORDERS FROM Online_Orders GROUP BY customer_name HAVING COUNT(*)>1;
 
---10.	List payment methods used in more than 3 orders.
+--10.	List payment methods used in more than 3 orders.S
 SELECT payment_method, COUNT(*) AS TIMES_USED FROM Online_Orders GROUP BY payment_method HAVING COUNT(*)>3;
+
+--11.	Find the total revenue per category for orders placed after '2024-03-01'.
+SELECT category, SUM(quantity*unit_price) AS TOTAL_REVENUE  FROM Online_Orders WHERE order_date>'2024-03-01' GROUP BY category;
+
+--12.	List each city (use shipping_address if added) and total revenue where delivery_status = 'Delivered'.
+SELECT shipping_city, SUM(quantity*unit_price) AS TOTAL_REVENUE  FROM Online_Orders WHERE delivery_status='DELIVERED' GROUP BY shipping_city;
+
+--13.	Show total number of orders per category where payment method is not 'Cash'.
+SELECT category, COUNT(*) AS TOTAL_ORDERS  FROM Online_Orders WHERE payment_method !='CASH' GROUP BY category;
+
+--14.	Find the total quantity per product where order date is in March 2024.
+SELECT product_name, SUM(quantity) AS QUANTITY
+FROM ONLINE_Orders WHERE order_date>='2024-03-01' AND order_date<='2024-03-31'
+GROUP BY product_name;
+--OR
+SELECT product_name, SUM(quantity) AS QUANTITY 
+FROM ONLINE_Orders WHERE MONTH(order_date)=3 AND YEAR(order_date)=2024
+GROUP BY product_name;
+
+--15.	Show the number of orders per customer where the payment method is 'UPI' and group only those customers who placed more than 1 order.
+SELECT customer_name, COUNT(*) AS NUMBER_OF_ORDERS FROM Online_Orders WHERE payment_method='UPI' GROUP BY customer_name HAVING COUNT(*)>1;
+
+--16.	Calculate total revenue (quantity * unit_price) per customer_name.
+SELECT customer_name, SUM(quantity*unit_price) AS TOTAL_REVENUE  FROM Online_Orders GROUP BY customer_name;
+

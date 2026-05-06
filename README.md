@@ -241,3 +241,51 @@ ROLLBACK; -- or COMMIT;
 
 To practice real-world delete scenarios and strengthen SQL concepts for interviews and projects.
 
+## TOP_ORDER_BY_DISTINCT_AGGREGATE_FUNCTIONS
+
+Marketing_Finance -
+Campaign performance data (platform, impressions, clicks, budget, spend, revenue)
+
+⚙️ What This Covers
+Aliasing columns using AS
+Aggregations using:
+SUM, AVG, MAX
+
+Sorting data using:
+ORDER BY (ASC, DESC)
+Multiple column sorting
+
+Finding unique values using:
+DISTINCT
+
+Top records using:
+TOP, TOP WITH TIES
+
+Calculations based on:
+Revenue
+Budget
+Clicks
+Impressions
+
+Derived metrics:
+Profit (Revenue - Spend)
+CTR (Clicks / Impressions)
+ROI ((Revenue - Spend) / Spend)
+
+📊 Key Concepts
+SELECT → retrieve data
+AS → rename columns
+ORDER BY → sort results
+DISTINCT → unique values
+TOP → limit results
+
+⚠️ Important Notes
+-- Avoid integer division in CTR
+SELECT Clicks * 1.0 / Impressions FROM Marketing_Finance;
+
+-- Always verify before sorting/filtering
+SELECT * FROM Marketing_Finance;
+
+🎯 Purpose
+
+To practice real-world marketing analytics queries and strengthen SQL fundamentals for interviews and projects.

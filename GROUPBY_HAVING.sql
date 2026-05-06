@@ -97,3 +97,18 @@ SELECT category, AVG(quantity*unit_price) AS AVG_REVENUE FROM Online_Orders WHER
 --18.	Calculate 20% discount on total revenue per product_name and show discounted revenue.
 SELECT product_name, SUM(quantity*unit_price*0.80) AS DISCOUNTED_REVENUE FROM Online_Orders GROUP BY product_name;
 
+--19.	Show total tax collected per payment_method assuming 18% GST on revenue.
+SELECT payment_method, SUM(quantity * unit_price * 0.18) AS tax FROM Online_Orders GROUP BY payment_method;
+
+--20.	Find net revenue per category using formula: (quantity * unit_price) - discount (assuming discount = 10% of revenue).
+SELECT category, SUM(quantity * unit_price * 0.9) AS net_revenue FROM Online_Orders GROUP BY category;
+
+--21.	Calculate total shipping cost (assume ₹50 per order) per customer.
+SELECT customer_name, COUNT(*) * 50 AS shipping_cost FROM Online_Orders GROUP BY customer_name;
+
+--22.	Show product names where revenue after 20% discount is more than ₹10,000.
+SELECT product_name, SUM(quantity * unit_price * 0.8) AS DICOUNTED_PRICE FROM Online_Orders GROUP BY product_name HAVING SUM(quantity * unit_price * 0.8)>10000;
+
+--23.	Display category-wise average unit price and apply 5% increase (show updated price).
+SELECT CATEGORY, AVG(unit_price) AS AVG_UNIT_PRICE, AVG(unit_price * 1.05) AS UPDATED_PRICE FROM Online_Orders GROUP BY category;
+

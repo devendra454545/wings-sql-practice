@@ -112,3 +112,5 @@ SELECT product_name, SUM(quantity * unit_price * 0.8) AS DICOUNTED_PRICE FROM On
 --23.	Display category-wise average unit price and apply 5% increase (show updated price).
 SELECT CATEGORY, AVG(unit_price) AS AVG_UNIT_PRICE, AVG(unit_price * 1.05) AS UPDATED_PRICE FROM Online_Orders GROUP BY category;
 
+--24.	Find customers where average order value (revenue per order) is above ₹2000.
+SELECT customer_name, AVG(quantity * unit_price) AS avg_value FROM Online_Orders GROUP BY customer_name HAVING AVG(quantity * unit_price) > 2000;

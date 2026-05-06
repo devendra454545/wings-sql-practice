@@ -114,3 +114,6 @@ SELECT CATEGORY, AVG(unit_price) AS AVG_UNIT_PRICE, AVG(unit_price * 1.05) AS UP
 
 --24.	Find customers where average order value (revenue per order) is above ₹2000.
 SELECT customer_name, AVG(quantity * unit_price) AS avg_value FROM Online_Orders GROUP BY customer_name HAVING AVG(quantity * unit_price) > 2000;
+
+--25.	Calculate reward points for each customer (assume 1 point per ₹100 spent).
+SELECT customer_name, SUM(quantity * unit_price)/100 AS points FROM Online_Orders GROUP BY customer_name;

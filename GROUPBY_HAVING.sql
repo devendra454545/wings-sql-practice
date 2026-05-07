@@ -142,3 +142,5 @@ SELECT customer_name,COUNT(*) AS TOTAL_ORDERS, SUM(quantity) AS TOTAL_QUANTITY, 
 --33.	Show payment_method wise total revenue, tax collected, and net payable.
 SELECT payment_method, SUM(quantity * unit_price) AS TOTAL_REVENUE,SUM(quantity * unit_price*0.18)AS TAX_COLLECTED ,SUM(quantity * unit_price*1.18)AS NET_PAYABLE FROM Online_Orders GROUP BY payment_method;
 
+--34.	Calculate total revenue, tax, and profit (assume profit = 30% of revenue) per product.
+SELECT product_name, SUM(quantity * unit_price) AS TOTAL_REVENUE,SUM(quantity * unit_price*0.18)AS TAX, SUM(quantity * unit_price*0.30)AS NET_PROFIT FROM Online_Orders GROUP BY product_name;

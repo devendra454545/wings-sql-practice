@@ -117,3 +117,19 @@ SELECT customer_name, AVG(quantity * unit_price) AS avg_value FROM Online_Orders
 
 --25.	Calculate reward points for each customer (assume 1 point per ₹100 spent).
 SELECT customer_name, SUM(quantity * unit_price)/100 AS points FROM Online_Orders GROUP BY customer_name;
+
+--26.	Show customers whose total discounted revenue (20% off) exceeds ₹15,000.
+SELECT customer_name, SUM(quantity * unit_price * 0.80) AS DISCOUNTED_REVENUE_BY20PERCENT FROM Online_Orders GROUP BY customer_name HAVING SUM(quantity * unit_price * 0.80)>15000 ;
+
+--27.	Find products where total tax collected (assume 18%) is greater than ₹500.
+SELECT product_name, SUM(quantity * unit_price * 0.18) AS  TOTAL_TAX FROM Online_Orders GROUP BY product_name HAVING SUM(quantity * unit_price * 0.18)>500 ;
+
+--28.	List categories where revenue after tax exceeds ₹20,000.
+SELECT category, SUM(quantity * unit_price * 0.82) AS  REVENUE_AFTER_TAX FROM Online_Orders GROUP BY category HAVING SUM(quantity * unit_price * 0.82)> 20000 ;
+
+--29.	Show customers who paid more than ₹1000 tax in total.
+SELECT customer_name, SUM(quantity * unit_price * 0.18) AS  TOTAL_TAX FROM Online_Orders GROUP BY customer_name HAVING SUM(quantity * unit_price * 0.18)> 1000 ;
+
+--30.	Find products where the average discount amount (15% of revenue) is more than ₹500.
+SELECT product_name, AVG(quantity * unit_price * 0.85) AS  DISCOUNTED_BY_15_PERCENT FROM Online_Orders GROUP BY product_name HAVING AVG(quantity * unit_price * 0.85)> 500 ;
+

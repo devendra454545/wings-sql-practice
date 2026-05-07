@@ -289,3 +289,50 @@ SELECT * FROM Marketing_Finance;
 🎯 Purpose
 
 To practice real-world marketing analytics queries and strengthen SQL fundamentals for interviews and projects.
+
+## GROUP BY AND HAVING CLAUSE
+
+Online_Orders -
+E-commerce order analysis (customers, products, payments, revenue, discounts, tax)
+
+⚙️ What This Covers
+GROUP BY aggregations
+HAVING clause filtering
+Revenue & profit calculations
+Discount & tax calculations
+Customer order analysis
+Payment method analysis
+Category-wise reporting
+Date-wise analysis
+Ranking & top-performing products
+
+📊 Key Concepts
+SUM → total calculations
+AVG → average calculations
+COUNT → total records
+DISTINCT → unique values
+GROUP BY → category-wise analysis
+HAVING → filter aggregated results
+
+💰 Business Metrics
+Revenue = quantity * unit_price
+Discounted Revenue
+GST / Tax calculations
+Net Revenue
+Profit calculations
+Reward Points
+Shipping Cost
+
+⚠️ Important Notes
+-- Use HAVING with aggregate functions
+SELECT category, SUM(quantity)
+FROM Online_Orders
+GROUP BY category
+HAVING SUM(quantity) > 5;
+
+-- Avoid integer division
+SELECT quantity * 1.0 * unit_price;
+
+🎯 Purpose
+
+To practice real-world SQL business scenarios and strengthen aggregation, filtering, and analytical SQL skills for interviews and projects.

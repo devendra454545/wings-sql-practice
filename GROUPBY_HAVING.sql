@@ -133,3 +133,12 @@ SELECT customer_name, SUM(quantity * unit_price * 0.18) AS  TOTAL_TAX FROM Onlin
 --30.	Find products where the average discount amount (15% of revenue) is more than ₹500.
 SELECT product_name, AVG(quantity * unit_price * 0.85) AS  DISCOUNTED_BY_15_PERCENT FROM Online_Orders GROUP BY product_name HAVING AVG(quantity * unit_price * 0.85)> 500 ;
 
+--31.	Calculate total revenue per order_date and find dates where it's above ₹5000.
+SELECT order_date, SUM(quantity * unit_price) AS  TOTAL_REVENUE FROM Online_Orders GROUP BY order_date HAVING SUM(quantity * unit_price) > 5000 ;
+
+--32.	Find customers who placed at least 3 orders and their total quantity and revenue.
+SELECT customer_name,COUNT(*) AS TOTAL_ORDERS, SUM(quantity) AS TOTAL_QUANTITY, SUM(quantity * unit_price) AS  TOTAL_REVENUE FROM Online_Orders GROUP BY customer_name HAVING COUNT(*)>3;
+
+--33.	Show payment_method wise total revenue, tax collected, and net payable.
+SELECT payment_method, SUM(quantity * unit_price) AS TOTAL_REVENUE,SUM(quantity * unit_price*0.18)AS TAX_COLLECTED ,SUM(quantity * unit_price*1.18)AS NET_PAYABLE FROM Online_Orders GROUP BY payment_method;
+

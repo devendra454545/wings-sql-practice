@@ -144,3 +144,54 @@ SELECT payment_method, SUM(quantity * unit_price) AS TOTAL_REVENUE,SUM(quantity 
 
 --34.	Calculate total revenue, tax, and profit (assume profit = 30% of revenue) per product.
 SELECT product_name, SUM(quantity * unit_price) AS TOTAL_REVENUE,SUM(quantity * unit_price*0.18)AS TAX, SUM(quantity * unit_price*0.30)AS NET_PROFIT FROM Online_Orders GROUP BY product_name;
+
+--35.   Find average discounted price per product (unit_price * 0.8) and filter those > ₹600.
+SELECT product_name, AVG(unit_price * 0.8) AS PRICE_PER_PRODUCT FROM Online_Orders GROUP BY product_name HAVING AVG(unit_price * 0.8) > 600;
+
+--36.   Show the category-wise total revenue before and after applying a 15% discount.
+SELECT category, SUM(unit_price * quantity) AS PRICE_BEFORE_DISCOUNT, SUM(unit_price * quantity * 0.85) AS PRICE_AFTER_DISCOUNT FROM Online_Orders GROUP BY category;
+GROUP BY AND HAVING
+
+--37.   List customer_names whose average order value after 20% discount is greater than ₹1500.
+SELECT customer_name, AVG(unit_price * quantity* 0.80) AS PRICE_AFTER_DISCOUNT FROM Online_Orders GROUP BY customer_name HAVING AVG(unit_price * quantity* 0.80)>1500;
+
+--38.   Find the top 3 products by total revenue (after tax) in each category.
+--39.   Display the order_date with highest total tax collected (assume 18% tax on each order).
+SELECT TOP 1 order_date, SUM(unit_price * quantity* 0.15) AS TAX FROM Online_Orders GROUP BY order_date ORDER BY SUM(unit_price * quantity* 0.15) DESC;
+
+--40.   Calculate delivery commission per order (assume 2% of order value) and show total commission per delivery_status.
+SELECT delivery_status, SUM(unit_price * quantity* 0.02) AS COMMISSION FROM Online_Orders GROUP BY delivery_status;
+
+--41.   List customers who gave ratings >= 4 and whose total spend is more than ₹5000 after 10% discount.
+SELECT customer_name, SUM(quantity * unit_price * 0.9) AS spend FROM Online_Orders WHERE rating >= 4 GROUP BY customer_name HAVING SUM(quantity * unit_price * 0.9) > 5000;
+
+--42.   Calculate gross profit per product assuming cost price = 70% of unit_price.
+SELECT product_name,SUM(quantity * unit_price * 0.3) AS profit FROM Online_Orders GROUP BY product_name;
+
+--43.   Find categories where number of orders with 'Cash on Delivery' exceeds 2 and show total quantity.
+SELECT category, COUNT(*) AS orders,SUM(quantity) AS quantity FROM Online_Orders WHERE payment_method='CASH' GROUP BY category HAVING COUNT(*) > 2;
+
+--44.   Show total feedback_submitted = TRUE count per product and filter those with average rating > 3.5.
+SELECT product_name,COUNT(*) AS feedback_count,AVG(rating) AS avg_rating FROM Online_Orders WHERE feedback_submitted = 1 GROUP BY product_name HAVING AVG(rating) > 3.5;
+GROUP BY AND HAVING
+
+--45.   For each product, calculate:
+--      • Total Revenue = quantity * unit_price
+--      • Discount Amount = Revenue * 0.10
+--      • Tax = (Revenue - Discount) * 0.18
+SELECT product_name,SUM(quantity * unit_price) AS revenue,SUM(quantity * unit_price * 0.10) AS discount,SUM((quantity * unit_price * 0.90) * 0.18) AS tax FROM Online_Orders GROUP BY product_name;
+
+--46.   Net Revenue = Revenue - Discount + Tax. Return all values in output.
+SELECT product_name,SUM(quantity * unit_price) AS revenue,SUM(quantity * unit_price * 0.10) AS discount,SUM((quantity * unit_price * 0.90) * 0.18) AS tax,SUM((quantity * unit_price * 0.90 * 1.18)-quantity * unit_price) AS net FROM Online_Orders GROUP BY product_name;
+
+--47.   Display the total revenue lost due to discount (assume 10%) per category.
+SELECT category, SUM(quantity * unit_price * 0.10) AS lost FROM Online_Orders GROUP BY category;
+
+--48.   List each city with total revenue and average rating of delivered orders.
+SELECT shipping_city, SUM(quantity * unit_price ) AS TOTAL_REVENUE, AVG(rating) AS RATING FROM Online_Orders WHERE delivery_status='DELIVERED' GROUP BY shipping_city;
+
+--49.   Show payment_method-wise total revenue, and return only those where discounted revenue > ₹10,000.
+SELECT payment_method, SUM(quantity * unit_price) AS revenue FROM Online_Orders GROUP BY payment_method HAVING SUM(quantity * unit_price * 0.8) > 10000;
+
+--50.   Find all customers who placed orders from more than 1 state and spent over ₹8,000 total (after 20% discount).
+SELECT customer_name, COUNT(DISTINCT shipping_state) AS states, SUM(quantity * unit_price * 0.8) AS spend FROM Online_Orders GROUP BY customer_name HAVING COUNT(DISTINCT shipping_state) > 1 AND SUM(quantity * unit_price * 0.8) > 8000;

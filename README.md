@@ -292,47 +292,194 @@ To practice real-world marketing analytics queries and strengthen SQL fundamenta
 
 ## GROUP BY AND HAVING CLAUSE
 
-Online_Orders -
-E-commerce order analysis (customers, products, payments, revenue, discounts, tax)
+Project Overview
 
-⚙️ What This Covers
-GROUP BY aggregations
-HAVING clause filtering
-Revenue & profit calculations
-Discount & tax calculations
-Customer order analysis
-Payment method analysis
-Category-wise reporting
-Date-wise analysis
-Ranking & top-performing products
+This project contains 50 real-world SQL practice questions based on an E-commerce Online Orders dataset using:
 
-📊 Key Concepts
-SUM → total calculations
-AVG → average calculations
-COUNT → total records
-DISTINCT → unique values
-GROUP BY → category-wise analysis
-HAVING → filter aggregated results
+GROUP BY
+HAVING
+Aggregate Functions
+Revenue Calculations
+Tax & Discount Calculations
+Business Analytics Queries
 
-💰 Business Metrics
+The project is designed to strengthen practical SQL skills used in:
+
+Data Analytics
+Business Intelligence
+Reporting
+E-commerce Analytics
+SQL Interviews
+
+📥 Dataset Features
+
+The dataset simulates a real-world E-commerce platform containing:
+
+Electronics
+Furniture
+Accessories
+Kitchen Products
+Home Essentials
+Stationery
+Home Decor
+Included Business Information:
+Customer Orders
+Product Sales
+Payment Methods
+Delivery Status
+Ratings & Feedback
+Shipping Details
+Revenue Data
+🧠 SQL Concepts Covered
+🔹 GROUP BY
+
+Used to group rows with similar values for analysis.
+
+Examples:
+Category-wise Revenue
+Product-wise Quantity
+Customer-wise Spending
+City-wise Sales
+🔹 HAVING
+
+Used to filter grouped data after aggregation.
+
+Examples:
+Customers spending > ₹5000
+Products generating revenue > ₹10000
+Categories with quantity > 5
+
+
+📊 Aggregate Functions Used
+| Function        | Purpose              |
+| --------------- | -------------------- |
+| SUM()           | Total calculations   |
+| AVG()           | Average calculations |
+| COUNT()         | Count records        |
+| COUNT(DISTINCT) | Unique counts        |
+| MAX()           | Highest values       |
+| MIN()           | Lowest values        |
+
+Business Metrics Implemented
+Revenue Formula
 Revenue = quantity * unit_price
-Discounted Revenue
-GST / Tax calculations
-Net Revenue
-Profit calculations
-Reward Points
-Shipping Cost
+Discount Formula
+Discounted Revenue = Revenue * 0.80
+GST / Tax Formula
+Tax = Revenue * 0.18
+Net Revenue Formula
+Net Revenue = Revenue - Discount + Tax
+Profit Formula
+Profit = Revenue * 0.30
+📚 Topics Covered in 50 SQL Questions
+🛒 Sales & Revenue Analysis
+Total revenue calculations
+Category-wise revenue
+Product-wise revenue
+Revenue after discounts
+Revenue after tax
+👥 Customer Analytics
+High-spending customers
+Average order value
+Multi-state customers
+Customer reward points
+Order frequency analysis
+📦 Product Analytics
+Top-selling products
+Product profit analysis
+Product tax calculations
+Product feedback analysis
+Discounted product pricing
+💳 Payment Analysis
+Payment method usage
+Revenue per payment method
+Tax collected per payment type
+Net payable analysis
+🚚 Delivery & Shipping Analysis
+Delivery commission calculations
+Delivered order analysis
+Shipping city revenue
+Shipping cost estimation
+⭐ Ratings & Feedback Analysis
+Customer ratings analysis
+Average rating calculations
+Feedback submitted reports
+Highly rated products
+⚙️ SQL Features Used
+Core SQL Clauses
+SELECT
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+DISTINCT
+TOP
+📈 Advanced SQL Logic Implemented
+✔ Revenue Calculations
+✔ Discount Calculations
+✔ GST / Tax Computation
+✔ Profit Analysis
+✔ Conditional Filtering
+✔ Aggregate Filtering
+✔ Date-wise Analysis
+✔ Category-wise Reporting
+✔ Customer Segmentation
+🎯 Real-World Business Scenarios Solved
 
-⚠️ Important Notes
--- Use HAVING with aggregate functions
-SELECT category, SUM(quantity)
-FROM Online_Orders
-GROUP BY category
-HAVING SUM(quantity) > 5;
+This project simulates real business reporting tasks such as:
 
--- Avoid integer division
-SELECT quantity * 1.0 * unit_price;
+Sales Dashboard Reporting
+Revenue Tracking
+Profitability Analysis
+Customer Segmentation
+Product Performance Tracking
+Tax Reporting
+Discount Impact Analysis
+Delivery Performance Analysis
+🚀 Learning Outcomes
 
-🎯 Purpose
+After completing this project, I improved my understanding of:
 
-To practice real-world SQL business scenarios and strengthen aggregation, filtering, and analytical SQL skills for interviews and projects.
+SQL Aggregations
+GROUP BY & HAVING
+Real-world Business Queries
+Analytical SQL
+Revenue Calculations
+E-commerce Reporting
+Data-driven Decision Making
+🧩 Example Queries Included
+✔ Category-wise Revenue
+✔ Customer Spending Analysis
+✔ Discount & Tax Calculations
+✔ Product Profit Analysis
+✔ Top Revenue Products
+✔ Feedback & Ratings Reports
+✔ Payment Method Analytics
+✔ Date-wise Revenue Tracking
+📌 Total Practice Completed
+Metric	Count
+SQL Questions Solved	50
+Aggregate Functions Used	5+
+Business Scenarios Covered	15+
+SQL Concepts Practiced	GROUP BY, HAVING, Aggregations
+🛠 Tools Used
+Microsoft SQL Server
+SQL Server Management Studio (SSMS)
+🎯 Purpose of This Project
+
+The goal of this project is to practice:
+
+Real-world SQL problems
+Business reporting queries
+Analytical thinking using SQL
+Interview-oriented SQL questions
+Data analytics concepts
+📌 Author
+Devendra Singh Thakur
+
+SQL Practice Project focused on:
+
+Data Analytics
+Business Intelligence
+E-commerce SQL Scenarios
+Aggregation & Reporting Queries
